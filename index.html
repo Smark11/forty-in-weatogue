@@ -1,0 +1,827 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Forty in Weatogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --surface-2:#e8eeec; --ink:#13292b; --muted:#566a6c; --line:#d3dcd9;
+  --accent:#c93a6d; --accent-ink:#ffffff; --accent-soft:#fbe4ed;
+  --hero:#15393b; --hero-2:#1b4446; --hero-ink:#f3f7f6; --hero-muted:#b5cac9;
+  --warn-bg:#fff3d6; --warn-ink:#7a4b00; --bad-bg:#fde6e3; --bad-ink:#a3261b; --good-bg:#e0f2e8; --good-ink:#1d6b45;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0d1617; --surface:#142022; --surface-2:#1b2a2c; --ink:#e3eceb; --muted:#97abac; --line:#2a3b3d;
+    --accent:#f0739f; --accent-ink:#22070f; --accent-soft:#3a1826;
+    --hero:#0f2b2d; --hero-2:#143436; --hero-ink:#eef5f4; --hero-muted:#9fb9b8;
+    --warn-bg:#352a10; --warn-ink:#f2c46c; --bad-bg:#3a1714; --bad-ink:#ff9c90; --good-bg:#11301f; --good-ink:#78d6a6;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d1617; --surface:#142022; --surface-2:#1b2a2c; --ink:#e3eceb; --muted:#97abac; --line:#2a3b3d;
+  --accent:#f0739f; --accent-ink:#22070f; --accent-soft:#3a1826;
+  --hero:#0f2b2d; --hero-2:#143436; --hero-ink:#eef5f4; --hero-muted:#9fb9b8;
+  --warn-bg:#352a10; --warn-ink:#f2c46c; --bad-bg:#3a1714; --bad-ink:#ff9c90; --good-bg:#11301f; --good-ink:#78d6a6;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+a{color:var(--accent); text-underline-offset:2px}
+a:focus-visible, button:focus-visible, input:focus-visible, label:focus-within{outline:2px solid var(--accent); outline-offset:2px}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; line-height:1.1}
+h2{font-size:clamp(1.6rem, 3.2vw, 2.2rem); font-weight:800; letter-spacing:-.01em}
+h3{font-size:1.15rem; font-weight:600}
+p{margin:0}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.wrap{max-width:1120px; margin:0 auto; padding-inline:20px}
+@media (max-width:480px){ .wrap{padding-inline:16px} }
+
+/* ---------- hero ---------- */
+.hero{background:var(--hero); color:var(--hero-ink);
+  background-image:repeating-linear-gradient(90deg, var(--hero) 0 44px, var(--hero-2) 44px 88px);}
+.hero .wrap{padding-block:40px 34px; display:grid; gap:28px; grid-template-columns:1.25fr 1fr; align-items:end}
+.hero h1{font-size:clamp(2.6rem, 7vw, 4.6rem); font-weight:800; letter-spacing:-.025em; line-height:.95}
+.hero h1 em{font-style:normal; color:var(--accent)}
+.hero .lede{margin-top:16px; color:var(--hero-muted); max-width:52ch; font-size:1.05rem}
+.ticket{background:var(--surface); color:var(--ink); border-radius:14px; display:grid; grid-template-columns:auto 1fr; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.ticket .stub{background:var(--accent); color:var(--accent-ink); padding:18px 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border-right:2px dashed color-mix(in srgb, var(--accent-ink) 45%, transparent)}
+.stub .dow{font-size:.75rem; font-weight:700; letter-spacing:.14em}
+.stub .day{font-family:var(--display); font-size:3rem; font-weight:800; line-height:1}
+.stub .mon{font-size:.8rem; font-weight:700; letter-spacing:.14em}
+.ticket dl{margin:0; padding:14px 18px; display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:.92rem}
+.ticket dt{color:var(--muted)}
+.ticket dd{margin:0; font-weight:600}
+.countdown{grid-column:1/-1; margin-top:6px; padding-top:10px; border-top:1px solid var(--line); display:flex; align-items:baseline; gap:8px}
+.countdown .n{font-family:var(--display); font-size:2rem; font-weight:800; color:var(--accent); line-height:1}
+.valance{height:18px; background:radial-gradient(circle at 50% 0, var(--hero) 0 17px, transparent 17.5px) 0 0/36px 18px repeat-x}
+@media (max-width:820px){ .hero .wrap{grid-template-columns:1fr} }
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex; gap:4px; overflow-x:auto; padding-block:8px; scrollbar-width:none}
+.nav a{white-space:nowrap; text-decoration:none; color:var(--ink); font-weight:600; font-size:.9rem; padding:6px 12px; border-radius:999px}
+.nav a:hover{background:var(--surface-2)}
+
+section{padding-block:44px 8px}
+.sec-head{display:grid; gap:8px; margin-bottom:22px; max-width:70ch}
+.sec-head p{color:var(--muted)}
+
+/* ---------- alerts ---------- */
+.alerts{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:14px}
+.alert{padding:16px 18px; border-radius:12px; background:var(--warn-bg); color:var(--warn-ink); display:grid; gap:6px}
+.alert.bad{background:var(--bad-bg); color:var(--bad-ink)}
+.alert strong{font-family:var(--display); font-size:1.08rem; color:inherit}
+.alert p{color:var(--ink); font-size:.94rem}
+
+/* ---------- planner ---------- */
+.planner{display:grid; grid-template-columns:1fr 360px; gap:22px; align-items:start}
+@media (max-width:900px){ .planner{grid-template-columns:1fr} }
+.presets{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px}
+.preset{font:inherit; cursor:pointer; text-align:left; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:12px; padding:10px 14px; display:grid; gap:2px; flex:1 1 200px}
+.preset b{font-family:var(--display); font-size:1rem}
+.preset span{font-size:.84rem; color:var(--muted)}
+.preset[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft)}
+.cat{border-top:1px solid var(--line); padding-block:14px}
+.cat > .cat-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px}
+.cat-head .eyebrow{color:var(--ink)}
+.cat-head .hint{font-size:.82rem; color:var(--muted)}
+.opts{display:grid; gap:6px}
+.opt{display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:start; padding:9px 12px; border-radius:10px; cursor:pointer; border:1px solid transparent}
+.opt:hover{background:var(--surface-2)}
+.opt:has(input:checked){background:var(--surface); border-color:var(--accent)}
+.opt input{margin-top:4px; accent-color:var(--accent)}
+.opt .t{font-weight:600}
+.opt .v{font-size:.84rem; color:var(--muted); display:block; font-weight:400}
+.opt .p{font-family:var(--mono); font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap}
+.flag{display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:1px 7px; border-radius:999px; margin-left:6px; vertical-align:2px}
+.flag.warn{background:var(--warn-bg); color:var(--warn-ink)}
+.flag.bad{background:var(--bad-bg); color:var(--bad-ink)}
+.flag.good{background:var(--good-bg); color:var(--good-ink)}
+.qty{display:flex; gap:16px; flex-wrap:wrap; margin:4px 0 10px 12px; font-size:.9rem}
+.qty label{display:flex; align-items:center; gap:8px}
+.qty input{width:70px; font:inherit; font-family:var(--mono); padding:4px 8px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink)}
+
+.receipt{position:sticky; top:calc(env(safe-area-inset-top, 0px) + 64px); background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px; display:grid; gap:14px}
+@media (max-width:900px){ .receipt{position:static} }
+.receipt h3{font-family:var(--display); font-size:1.3rem}
+.lines{display:grid; gap:6px; font-size:.9rem}
+.line{display:flex; justify-content:space-between; gap:12px}
+.line span:first-child{color:var(--muted)}
+.line .num{white-space:nowrap}
+.total{border-top:2px dashed var(--line); padding-top:12px; display:flex; justify-content:space-between; align-items:baseline}
+.total .num{font-size:1.9rem; font-weight:600; color:var(--accent)}
+.fine{font-size:.8rem; color:var(--muted)}
+.calls{display:grid; gap:8px}
+.call{display:grid; grid-template-columns:1fr auto; gap:2px 10px; padding:10px 12px; background:var(--surface-2); border-radius:10px; font-size:.88rem}
+.call b{font-weight:700}
+.call .what{grid-column:1/-1; color:var(--muted); font-size:.82rem}
+
+/* ---------- phone chip ---------- */
+.phone{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-weight:600; font-size:.92rem}
+.phone a{color:var(--ink); text-decoration:none; user-select:all}
+.copy{font:inherit; font-family:var(--body); font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border:1px solid var(--line); background:var(--surface); color:var(--muted); border-radius:6px; padding:2px 7px; cursor:pointer}
+.copy:hover{color:var(--accent); border-color:var(--accent)}
+
+/* ---------- vendors ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
+.chip{font:inherit; font-size:.88rem; font-weight:600; cursor:pointer; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:6px 14px}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.vgrid{display:grid; grid-template-columns:repeat(auto-fill, minmax(330px, 1fr)); gap:16px}
+@media (max-width:400px){ .vgrid{grid-template-columns:1fr} }
+.vcard{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:12px}
+.vcard header{display:grid; gap:4px}
+.vtop{display:flex; justify-content:space-between; gap:10px; align-items:start}
+.vcard h3{font-size:1.25rem}
+.vmeta{font-size:.86rem; color:var(--muted)}
+.fit{font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 9px; border-radius:999px; white-space:nowrap}
+.fit.top{background:var(--accent); color:var(--accent-ink)}
+.fit.good{background:var(--good-bg); color:var(--good-ink)}
+.fit.caution{background:var(--warn-bg); color:var(--warn-ink)}
+.fit.avoid{background:var(--bad-bg); color:var(--bad-ink)}
+.vsum{font-size:.93rem}
+.items{display:grid; gap:0; font-size:.88rem; margin:0; padding:0; list-style:none}
+.items li{display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:1px dotted var(--line)}
+.items li span:last-child{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
+.watch{font-size:.86rem; display:grid; gap:4px; padding:10px 12px; border-radius:10px; background:var(--warn-bg); color:var(--ink)}
+.watch b{color:var(--warn-ink)}
+.vfoot{margin-top:auto; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; justify-content:space-between; padding-top:10px; border-top:1px solid var(--line); font-size:.88rem}
+
+/* ---------- table ---------- */
+.tscroll{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:900px; font-size:.88rem}
+th,td{padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
+thead th{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); background:var(--surface-2); position:sticky; top:0}
+tbody th{font-weight:700; white-space:nowrap}
+td.num{white-space:nowrap}
+.y{color:var(--good-ink); font-weight:600}
+.n{color:var(--bad-ink); font-weight:600}
+.m{color:var(--warn-ink); font-weight:600}
+
+/* ---------- tent explainer ---------- */
+.two{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+@media (max-width:820px){ .two{grid-template-columns:1fr} }
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; display:grid; gap:12px; align-content:start}
+.panel ul{margin:0; padding-left:1.1em; display:grid; gap:6px; font-size:.94rem}
+.plan-svg{width:100%; height:auto; max-width:100%}
+.plan-svg text{font-family:var(--body); fill:var(--ink)}
+.plan-svg .lab{fill:var(--muted); font-size:11px}
+
+/* ---------- extras ---------- */
+.xgrid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:14px}
+.x{padding:16px; border-radius:12px; background:var(--surface); border:1px solid var(--line); display:grid; gap:6px; align-content:start}
+.x .price{font-family:var(--mono); font-weight:600; color:var(--accent)}
+.x p{font-size:.88rem; color:var(--muted)}
+.x .who{font-size:.85rem}
+
+/* ---------- checklist ---------- */
+.check{display:grid; gap:4px; max-width:780px}
+.check label{display:grid; grid-template-columns:auto 1fr; gap:12px; padding:10px 12px; border-radius:10px; cursor:pointer; align-items:start}
+.check label:hover{background:var(--surface-2)}
+.check input{margin-top:5px; accent-color:var(--accent); width:17px; height:17px}
+.check input:checked + span{color:var(--muted); text-decoration:line-through}
+.check small{display:block; color:var(--muted); text-decoration:none}
+
+footer{margin-top:56px; padding-block:28px 40px; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem}
+footer .wrap{display:grid; gap:8px; max-width:900px; margin-inline:auto}
+@media (prefers-reduced-motion: no-preference){ .preset,.chip,.opt{transition:background .15s, border-color .15s} }
+</style>
+</head><body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--hero-muted)">Party rental research · Weatogue, CT 06089</p>
+      <h1>Forty in <em>Weatogue</em></h1>
+      <p class="lede">Where to rent a tent, bounce house, cotton candy machine and chairs for your wife's 40th, plus who can cater the Polish food, with prices, phone numbers and what to ask before you book. Most guests are adults, so this plan puts adult-rated inflatables first.</p>
+    </div>
+    <div class="ticket" aria-label="Event details">
+      <div class="stub"><span class="dow">SUNDAY</span><span class="day">11</span><span class="mon">OCT 2026</span></div>
+      <dl>
+        <dt>Guests</dt><dd>~50 · about 75% adults</dd>
+        <dt>Setup</dt><dd>Driveway / front yard</dd>
+        <dt>Evening</dt><dd>45–55°F · sunset about 6:15</dd>
+        <dt>Monday</dt><dd>Columbus Day (Oct 12)</dd>
+        <div class="countdown"><span class="n" id="days">16</span><span id="daysLabel">days to go. Call vendors this week.</span></div>
+      </dl>
+    </div>
+  </div>
+</header>
+<div class="valance" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#first">Read first</a>
+    <a href="#plan">Build your order</a>
+    <a href="#vendors">Vendors</a>
+    <a href="#compare">Compare prices</a>
+    <a href="#tent">Tent &amp; driveway</a>
+    <a href="#extras">Fun extras</a>
+    <a href="#food">Polish food</a>
+    <a href="#calls">Before you call</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="first">
+  <div class="sec-head">
+    <p class="eyebrow">Read this first</p>
+    <h2>Four things that change the plan</h2>
+  </div>
+  <div class="alerts">
+    <div class="alert bad">
+      <strong>HBH's bouncers are kids only</strong>
+      <p>HBH's rental contract says adults are "strictly prohibited" from its inflatables. HBH is still a good choice for the tent, chairs and cotton candy. For a bouncer adults can use, go to Bounce About, CT Inflatables or Party Patrol.</p>
+    </div>
+    <div class="alert">
+      <strong>The tent probably needs a permit</strong>
+      <p>In Connecticut, tents over 400 sq ft need a building permit and Fire Marshal approval. A 20×30 is 600 sq ft. With heaters and 50 guests, no exemption applies. Ask the tent company to pull the permit.</p>
+    </div>
+    <div class="alert">
+      <strong>Deposits lock in almost right away</strong>
+      <p>HBH and BreMar refund deposits only up to 14 days before the party, which is Sun Sep 27. Bounce About lets you cancel free up to 7 days ahead. Book the pieces you're sure about first.</p>
+    </div>
+    <div class="alert">
+      <strong>Bounce before the drinks</strong>
+      <p>Inflatable contracts bar anyone who has been drinking. Schedule bouncer time early in the party, and give the kids the last hour.</p>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="sec-head">
+    <p class="eyebrow">Build your order</p>
+    <h2>Pick a starting plan, then swap pieces</h2>
+    <p>Prices are the vendors' published rates as of Sep 25, 2026. Items marked <span class="flag warn">est.</span> are estimates and <span class="flag warn">quote</span> means you'll need to call. The receipt adds 6.35% CT sales tax. Delivery is quoted separately except at Bounce About, which delivers free to Simsbury.</p>
+  </div>
+  <div class="planner">
+    <div>
+      <div class="presets" id="presets"></div>
+      <div id="cats"></div>
+    </div>
+    <aside class="receipt" aria-live="polite">
+      <div>
+        <p class="eyebrow">Estimated total</p>
+        <h3 id="planName">Plan A</h3>
+      </div>
+      <div class="lines" id="lines"></div>
+      <div class="total"><span>Total with tax</span><span class="num" id="total">$0</span></div>
+      <p class="fine" id="fineprint"></p>
+      <div>
+        <p class="eyebrow" style="margin-bottom:8px">Your call list</p>
+        <div class="calls" id="calls"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="vendors">
+  <div class="sec-head">
+    <p class="eyebrow">Vendors</p>
+    <h2>Who rents what near Weatogue</h2>
+    <p>Ordered by how well each fits this party. Distances are approximate driving miles from Weatogue.</p>
+  </div>
+  <div class="filters" id="filters" role="group" aria-label="Filter vendors"></div>
+  <div class="vgrid" id="vgrid"></div>
+</section>
+
+<section id="compare">
+  <div class="sec-head">
+    <p class="eyebrow">Compare prices</p>
+    <h2>Prices side by side</h2>
+    <p>"—" means the vendor doesn't carry the item, and "quote" means they carry it but don't publish a price. Tent prices include installation unless noted.</p>
+  </div>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Vendor</th><th>Miles</th><th>20×30 tent</th><th>20×40 tent</th><th>Chair</th><th>Table</th><th>Cotton candy</th><th>Adult inflatable</th><th>On driveway?</th><th>Deposit / cancel</th></tr></thead>
+      <tbody>
+        <tr><th>HBH Party Rental</th><td class="num">~12</td><td class="num">$425 / $475<br><small>with sides + lights</small></td><td>—</td><td class="num">$2.00</td><td class="num">$12–15</td><td class="num">$70</td><td class="n">No, adults banned</td><td class="m">Ask</td><td>Forfeit inside 14 days</td></tr>
+        <tr><th>BreMar Rental</th><td class="num">~7</td><td class="num">$495</td><td class="num">$645</td><td class="num">$2.00</td><td class="num">$11</td><td>—</td><td>Kids 15×15 $220</td><td class="y">Yes, frame tents</td><td>30%, refundable to 14 days</td></tr>
+        <tr><th>Connecticut Party Rentals</th><td class="num">~4</td><td>quote</td><td>quote</td><td>quote</td><td>quote</td><td>—</td><td>—</td><td class="m">Ask</td><td>Ask</td></tr>
+        <tr><th>Tucker's Party Rental</th><td class="num">~13</td><td class="num">from $600</td><td class="num">from $800</td><td class="num">$2.69</td><td class="num">$15.99</td><td class="num">$89 + supplies</td><td>Kid-level only</td><td class="m">Water barrels, extra fee</td><td>50% non-refundable</td></tr>
+        <tr><th>Expert Rental</th><td class="num">~22</td><td class="num">$550</td><td class="num">$795</td><td class="num">$1.90</td><td class="num">$12</td><td>—</td><td>—</td><td class="y">Yes, weights</td><td>Ask</td></tr>
+        <tr><th>Taylor Rental</th><td class="num">~22</td><td class="num">$830</td><td class="num">$1,105</td><td class="num">$2.60</td><td class="num">$14.25</td><td class="num">$68.90</td><td>Kids castle $251</td><td class="m">Ask</td><td>50%; tents 50% non-refundable</td></tr>
+        <tr><th>Party Patrol</th><td class="num">~35</td><td class="num">$449–495</td><td class="num">$759–897</td><td>package</td><td>package</td><td>—</td><td class="num">Joust $396</td><td class="m">Yes, extra fee</td><td>20–25% non-refundable</td></tr>
+        <tr><th>Meriden Party Rentals</th><td class="num">~30</td><td class="num">$500–550</td><td class="num">$600–675</td><td>quote</td><td>quote</td><td class="num">$80</td><td class="num">Bull $1,000</td><td class="y">Weights included</td><td>Simsbury not on its list</td></tr>
+        <tr><th>Bounce About</th><td class="num">~6</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="num">$75</td><td class="num">Joust $415</td><td class="m">Last resort</td><td>$100; free cancel 7+ days</td></tr>
+        <tr><th>CT Inflatables</th><td class="num">~35</td><td class="num">20×20 $375</td><td>—</td><td class="num">$2.10</td><td class="num">$10</td><td class="num">$85</td><td class="num">Wipe Out $600</td><td class="y">Yes, sandbags</td><td>Free rain reschedule</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="tent">
+  <div class="sec-head">
+    <p class="eyebrow">Tent &amp; driveway</p>
+    <h2>Get the 20×40 if everyone sits down</h2>
+    <p>A 20×30 fits 50 people standing, but only about 35 seated at round tables. If the party includes a sit-down meal, cake table and a bar, a 20×40 gives you the room.</p>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h3>How many people fit</h3>
+      <div class="tscroll" style="border:0">
+        <table style="min-width:0">
+          <thead><tr><th>Layout</th><th>Sq ft / person</th><th>20×30</th><th>20×40</th></tr></thead>
+          <tbody>
+            <tr><th>Standing / cocktail</th><td class="num">12</td><td class="num">50</td><td class="num">66</td></tr>
+            <tr><th>6-ft banquet tables</th><td class="num">15</td><td class="num">40</td><td class="num">53</td></tr>
+            <tr><th>60" round tables</th><td class="num">17</td><td class="num">35</td><td class="num">47</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <svg class="plan-svg" viewBox="0 0 420 210" role="img" aria-label="Scale plan of a 20 by 40 foot tent with six 60-inch round tables and a buffet table">
+        <rect x="10" y="20" width="400" height="160" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+        <g fill="var(--surface)" stroke="var(--muted)" stroke-width="1.2">
+          <circle cx="75" cy="65" r="25"/><circle cx="165" cy="65" r="25"/><circle cx="255" cy="65" r="25"/>
+          <circle cx="75" cy="135" r="25"/><circle cx="165" cy="135" r="25"/><circle cx="255" cy="135" r="25"/>
+          <rect x="345" y="40" width="30" height="80" rx="2"/>
+        </g>
+        <text x="360" y="150" text-anchor="middle" class="lab">buffet</text>
+        <text x="360" y="163" text-anchor="middle" class="lab">/ cake</text>
+        <text x="210" y="14" text-anchor="middle" class="lab">40 ft</text>
+        <text x="210" y="200" text-anchor="middle" class="lab">6 × 60" rounds seat 48, plus a buffet table (1 ft ≈ 10 px)</text>
+      </svg>
+    </div>
+    <div class="panel">
+      <h3>Putting it on the driveway</h3>
+      <ul>
+        <li><b>Use a frame tent.</b> Frame tents stand on their own and can be held down with water barrels or concrete weights. Pole tents need stakes in grass.</li>
+        <li><b>Measure first.</b> You need a flat 20×40 (or 20×30) area plus a couple of feet on each side for the weights. Driveway slope matters, so mention it on the call.</li>
+        <li><b>Ask about the weight fee.</b> Tucker's charges for 8 water barrels and you supply the hose. Party Patrol charges a pavement fee. Meriden includes weights. BreMar and Expert say frame tents work on pavement but don't list a fee.</li>
+        <li><b>Staking in the yard?</b> Whoever drives the stakes has to call 811 (Call Before You Dig) two business days ahead. For Friday setup, that's Wednesday Oct 7. The tent company usually does this.</li>
+        <li><b>Heat it safely.</b> Rent a forced-air heater ducted into the tent (BreMar $180). Propane patio heaters are for open air, so put them outside the tent. Keep fire pits at least 20 ft from the tent.</li>
+        <li><b>Permit contacts.</b> Simsbury Building Dept <span class="phone num">860-658-3234</span> and Fire Marshal <span class="phone num">860-658-1971</span>.</li>
+        <li><b>Plan for power.</b> A cotton candy machine, a blower and lights each need their own circuit. Taylor says no extension cords for its cotton candy machine. Bounce About rents a generator for $100.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="extras">
+  <div class="sec-head">
+    <p class="eyebrow">Fun extras</p>
+    <h2>Add-ons for a grown-up 40th</h2>
+    <p>Pick one or two to go with the tent and bouncer. You can add any of them to the order above.</p>
+  </div>
+  <div class="xgrid">
+    <div class="x"><h3>Margarita machine</h3><span class="price">$150 + $18.50 per mix</span><p>You supply the tequila. Serving free alcohol at a private party needs no CT permit, but don't charge guests.</p><span class="who">CT Inflatables · <span class="phone">(860) 872-3662</span></span></div>
+    <div class="x"><h3>Adult inflatable games</h3><span class="price">$325–$600</span><p>Wipe Out sweeper $600, Human Foosball $545, Bungee Run $375, Lumberjack Throw $325.</p><span class="who">CT Inflatables · <span class="phone">(860) 872-3662</span></span></div>
+    <div class="x"><h3>Mechanical bull</h3><span class="price">$1,000–$1,200</span><p>The crowd favorite at a 40th. Ask whether an operator is included. CT Inflatables lists a "Staff" add-on at $0.</p><span class="who">CT Inflatables from $1,200 · Meriden Party Rentals $1,000 <span class="phone">(203) 907-9846</span></span></div>
+    <div class="x"><h3>Photo booth</h3><span class="price">$600–$1,100</span><p>Roaming booth $600, print booth $850, 360 booth from $1,100.</p><span class="who">Photo Booth Picture Co. · <span class="phone">203-208-9854</span></span></div>
+    <div class="x"><h3>Carnival games</h3><span class="price">$135 each</span><p>Axe throw, basketball, knock-down and ring toss. Bounce About delivers them free with an inflatable.</p><span class="who">Bounce About · <span class="phone">(860) 922-2858</span></span></div>
+    <div class="x"><h3>Giant yard games</h3><span class="price">$15–$40</span><p>BreMar rents giant Jenga for $15 and cornhole for $20. Velazco Rentals charges $40 per game.</p><span class="who">BreMar · <span class="phone">(860) 693-1869</span></span></div>
+    <div class="x"><h3>Bartender</h3><span class="price">from $200/hr, 3-hr min</span><p>Whimsically Tipsy includes a 6-ft bar free for 50+ guests. Mobile Mixology in Granby brings a horse-trailer bar (call for a quote).</p><span class="who">Whimsically Tipsy · whimsicallytipsy.com</span></div>
+    <div class="x"><h3>DJ</h3><span class="price">$200–$300/hr</span><p>Plan on about $600–1,200 for a 3–4 hour party. A 15×15 dance floor from BreMar is $425.</p><span class="who">Full Blast Entertainment · <span class="phone">860-400-2320</span></span></div>
+    <div class="x"><h3>Food truck</h3><span class="price">$15–30 per guest</span><p>Hartford-area trucks usually have a $1,200–1,500 minimum. Local options: Present Company (Simsbury) and Fryborg.</p><span class="who">Present Company · <span class="phone">860-658-2337</span></span></div>
+    <div class="x"><h3>Backyard movie</h3><span class="price">from $449</span><p>Screen, projector, sound and a technician for up to 75 guests. After sunset, around 6:15, it's dark enough.</p><span class="who">Premiere Outdoor Movies · <span class="phone">(877) 767-4338</span></span></div>
+    <div class="x"><h3>Popcorn cart</h3><span class="price">$80 + supplies</span><p>Pairs well with the cotton candy. Supplies are $2.99 per pack.</p><span class="who">BreMar · <span class="phone">(860) 693-1869</span></span></div>
+    <div class="x"><h3>S'mores by the fire</h3><span class="price">est. $75–175 + $40–80 supplies</span><p>No local vendor publishes a fire pit price. Check with the Fire Marshal and keep the pit at least 20 ft from the tent.</p><span class="who">Fire Marshal · <span class="phone">860-658-1971</span></span></div>
+  </div>
+</section>
+
+<section id="food">
+  <div class="sec-head">
+    <p class="eyebrow">Polish food</p>
+    <h2>Who can cater pierogi for Sunday</h2>
+    <p>Researched Oct 1, 2026. Katie asked for Polish comfort food, and Little Poland on Broad St in New Britain is about 30 minutes away. The catch: most of these kitchens close on Sundays, so the plan is either Belvedere Cafe on party day or a Saturday pickup you reheat in chafing dishes.</p>
+  </div>
+  <div class="alerts" style="margin-bottom:22px">
+    <div class="alert bad">
+      <strong>Sunday is the problem</strong>
+      <p>Taste of Poland, Euro Plate and the Pierogi Queen store are all closed Sunday. Only Belvedere Cafe (11am to 7pm) is confirmed open on Oct 11. Everyone else means a Saturday pickup and a reheat.</p>
+    </div>
+    <div class="alert">
+      <strong>Call this week</strong>
+      <p>Ten days out, order whichever kitchen says yes first. Ask for a tray quote for the list below, and taste a sampler plate when you pick up the order confirmation if you can.</p>
+    </div>
+    <div class="alert">
+      <strong>Reheating works</strong>
+      <p>Pierogi, kielbasa, gołąbki and bigos all reheat well. Rent two or three chafing dishes with the tent order (BreMar and Tucker's carry them) and pan-fry the pierogi in butter before guests arrive.</p>
+    </div>
+  </div>
+  <div class="vgrid">
+    <article class="vcard">
+      <header><div class="vtop"><h3>Belvedere Cafe</h3><span class="fit top">Open Sunday</span></div><span class="vmeta">82 Broad St, New Britain · ~30 min · Sun 11am–7pm</span></header>
+      <p class="vsum">The only Little Poland restaurant open on party day, so it can hand you hot trays Sunday afternoon. Rated 4.0 on Tripadvisor from 55 reviews, #7 of 122 restaurants in New Britain. Reviewers call the catering reasonably priced and beautifully presented. Lech Wałęsa has eaten here.</p>
+      <ul class="items"><li><span>Pierogi (potato &amp; cheese, cabbage &amp; mushroom)</span><span>quote</span></li><li><span>Potato pancakes, kielbasa, cabbage rolls</span><span>quote</span></li><li><span>Red borscht, Polish sampler platter</span><span>quote</span></li></ul>
+      <div class="watch"><b>Watch out</b><span>• Some reviews call certain dishes bland. Order a sampler plate first.</span><span>• Service reportedly uneven with large groups, so confirm the pickup time twice.</span></div>
+      <div class="vfoot"><span class="phone"><a href="tel:+18608261155">(860) 826-1155</a><button type="button" class="copy" data-copy="(860) 826-1155" aria-label="Copy (860) 826-1155">Copy</button></span><span><a href="https://www.tripadvisor.com/Restaurant_Review-g33847-d3599843-Reviews-Belvedere_Cafe-New_Britain_Connecticut.html" target="_blank" rel="noopener">Tripadvisor ↗</a></span><span class="fine" style="flex-basis:100%">Booking: phone. Ask for Sunday pickup or delivery to Weatogue.</span></div>
+    </article>
+    <article class="vcard">
+      <header><div class="vtop"><h3>Taste of Poland</h3><span class="fit top">Best food</span></div><span class="vmeta">99 Broad St, New Britain · ~30 min · Sat 10am–5pm · Sun closed</span></header>
+      <p class="vsum">Highest rated of the group: 4.6 from 120 reviews, with food scored 4.8. Advertises catering and birthday parties outright. Everything is made fresh daily and reviewers single out the pierogi, stuffed cabbage and potato pancakes. Pick up Saturday afternoon and reheat.</p>
+      <ul class="items"><li><span>Pierogi, potato dumplings with meat</span><span>quote</span></li><li><span>Stuffed cabbage, bigos with kielbasa</span><span>quote</span></li><li><span>Potato pancakes, blintzes, Polish plate</span><span>quote</span></li></ul>
+      <div class="watch"><b>Watch out</b><span>• Closed Sunday, so this is a Saturday pickup plan.</span><span>• Small kitchen. Place the order early in the week.</span></div>
+      <div class="vfoot"><span class="phone"><a href="tel:+18608262720">(860) 826-2720</a><button type="button" class="copy" data-copy="(860) 826-2720" aria-label="Copy (860) 826-2720">Copy</button></span><span><a href="https://www.restaurantji.com/ct/new-britain/taste-of-poland-" target="_blank" rel="noopener">Reviews ↗</a></span><span class="fine" style="flex-basis:100%">Booking: phone. Yelp lists a second number, (860) 827-1888.</span></div>
+    </article>
+    <article class="vcard">
+      <header><div class="vtop"><h3>Pierogi Queen</h3><span class="fit good">Full service</span></div><span class="vmeta">122 Prospect Hill Rd, East Windsor · ~35 min · store Sun closed</span></header>
+      <p class="vsum">Making award-winning pierogi since 1981, now based at Belvedere of East Windsor with a deli, bakery and BBQ smokehouse. The only option offering true full-service catering: chafing dishes, plates, utensils and 3 to 4 hours of waiter service. The BBQ side means the kids can get pulled pork and mac and cheese from the same order.</p>
+      <ul class="items"><li><span>Service charge (chafers, plates, staff)</span><span>$6 / person</span></li><li><span>Pierogi, kielbasa, kapusta, gołąbki, bigos</span><span>quote</span></li><li><span>Pulled pork, brisket, mac &amp; cheese, cornbread</span><span>quote</span></li><li><span>Linens, china, glasses</span><span>extra</span></li></ul>
+      <div class="watch"><b>Watch out</b><span>• The store is closed Sunday. Catering is a separate operation, so ask whether they staff Sunday events.</span><span>• Farthest drive of the shortlist.</span></div>
+      <div class="vfoot"><span class="phone"><a href="tel:+18606540008">(860) 654-0008</a><button type="button" class="copy" data-copy="(860) 654-0008" aria-label="Copy (860) 654-0008">Copy</button></span><span><a href="https://smokebbqpierogiqueen.company.site/" target="_blank" rel="noopener">Website ↗</a></span><span class="fine" style="flex-basis:100%">Booking: phone. Ask for a Sunday full-service quote for 35 people.</span></div>
+    </article>
+    <article class="vcard">
+      <header><div class="vtop"><h3>Polish National Home</h3><span class="fit caution">Call to confirm</span></div><span class="vmeta">60 Charter Oak Ave, Hartford · ~25 min · hours not published</span></header>
+      <p class="vsum">Hartford's Polish institution since 1930, and the closest option to Simsbury. Famous for the Polish Plate Deluxe with kielbasa, pierogi, bigos, gołąbki and mashed potatoes. They cater weddings and parties, but hours, takeout and pricing are not on the website, so one phone call settles whether they can do Sunday.</p>
+      <ul class="items"><li><span>Polish Plate Deluxe components as trays</span><span>quote</span></li><li><span>Gołąbki, pierogi, bigos</span><span>quote</span></li><li><span>Roast pork tenderloin</span><span>quote</span></li></ul>
+      <div class="watch"><b>Watch out</b><span>• Website lists only an email and a P.O. box for catering. Phone is the faster route.</span></div>
+      <div class="vfoot"><span class="phone"><a href="tel:+18602471784">(860) 247-1784</a><button type="button" class="copy" data-copy="(860) 247-1784" aria-label="Copy (860) 247-1784">Copy</button></span><span><a href="https://polishhomect.org/featured-menu/" target="_blank" rel="noopener">polishhomect.org ↗</a></span><span class="fine" style="flex-basis:100%">Booking: phone or email via the website.</span></div>
+    </article>
+    <article class="vcard">
+      <header><div class="vtop"><h3>Euro Plate</h3><span class="fit caution">Backup</span></div><span class="vmeta">100 Broad St, New Britain · ~30 min · Sat 10am–5pm · Sun &amp; Mon closed</span></header>
+      <p class="vsum">Small home-style kitchen with glowing reviews for fresh, kid-friendly food. Offers custom catering by email or phone. Closed Sunday and Monday, so Saturday pickup only.</p>
+      <ul class="items"><li><span>Pierogi, meatballs, gołąbki, stews, soups</span><span>quote</span></li></ul>
+      <div class="vfoot"><span class="phone"><a href="tel:+18604387031">(860) 438-7031</a><button type="button" class="copy" data-copy="(860) 438-7031" aria-label="Copy (860) 438-7031">Copy</button></span><span><a href="https://www.europlaterestaurant.com/" target="_blank" rel="noopener">europlaterestaurant.com ↗</a></span><span class="fine" style="flex-basis:100%">Booking: restauranteuroplate@gmail.com or phone.</span></div>
+    </article>
+    <article class="vcard">
+      <header><div class="vtop"><h3>Polmart deli + Roly Poly Bakery</h3><span class="fit good">Top-ups &amp; dessert</span></div><span class="vmeta">123 Broad St &amp; Main St, New Britain · ~30 min</span></header>
+      <p class="vsum">Polmart is a deli counter selling pierogi, bigos, gołąbki, croquettes and kielbasa with sauerkraut by the pound since 2003, a cheap way to pad the main order. Roly Poly Bakery on Main St is the dessert stop: pączki, szarlotka (apple cake), babka and sheet cakes. Confirm Saturday hours when you call.</p>
+      <ul class="items"><li><span>Polmart prepared foods by the pound</span><span>quote</span></li><li><span>Roly Poly pączki, szarlotka, cake</span><span>quote</span></li></ul>
+      <div class="vfoot"><span class="phone"><a href="tel:+18602237055">(860) 223-7055</a><button type="button" class="copy" data-copy="(860) 223-7055" aria-label="Copy (860) 223-7055">Copy</button></span><span><a href="https://www.polmartusa.com/prepared-foods" target="_blank" rel="noopener">polmartusa.com ↗</a></span><span class="fine" style="flex-basis:100%">Polmart phone shown. Staropolska, the famous one, closed in 2024.</span></div>
+    </article>
+  </div>
+  <div class="two" style="margin-top:22px">
+    <div class="panel">
+      <h3>What to order for 25 adults and 10 kids</h3>
+      <ul>
+        <li><b>Pierogi,</b> 10 to 12 dozen mixed, mostly potato &amp; cheese</li>
+        <li><b>Kielbasa with sauerkraut,</b> one large tray</li>
+        <li><b>Gołąbki,</b> 30 to 36 pieces</li>
+        <li><b>Bigos,</b> one large tray</li>
+        <li><b>Potato pancakes</b> with sour cream and applesauce</li>
+        <li><b>Cucumber or beet salad</b> for something fresh</li>
+        <li><b>Kids:</b> plain pierogi plus mac and cheese or pizza</li>
+        <li><b>Dessert:</b> pączki, szarlotka and a sheet cake from Roly Poly</li>
+      </ul>
+      <p class="fine">Budget roughly $600 to $900 for trays. Pierogi Queen's staffed service adds about $6 per person plus food.</p>
+    </div>
+    <div class="panel">
+      <h3>Questions for the food calls</h3>
+      <ul>
+        <li>Can you do Sunday Oct 11 pickup or delivery to Weatogue? If not, what time Saturday?</li>
+        <li>How many people does each tray feed, and what does the list above cost?</li>
+        <li>Do trays come in foil pans that go straight into a chafing dish?</li>
+        <li>What is the deposit, and when do you need the final count? RSVPs close Oct 4.</li>
+        <li>Can you add a vegetarian option, like sauerkraut &amp; mushroom pierogi and placki?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="calls">
+  <div class="sec-head">
+    <p class="eyebrow">Before you call</p>
+    <h2>Questions to ask every vendor</h2>
+    <p>Check them off as you go. Your checks are saved in this browser.</p>
+  </div>
+  <div class="check" id="checklist"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Where this comes from.</b> Rental research compiled Sep 25, 2026 and Polish catering research Oct 1, 2026, from each vendor's own website and published rental policies, plus the CT State Building Code and Fire Safety Code (tents over 400 sq ft), CBYD and CT DCP. Some sites contradict themselves, and those spots are flagged. Prices change, so confirm each one on the call.</p>
+    <p>Ratings from Google and Yelp couldn't be checked directly. Where a rating appears, it came from a search snippet or the vendor's own site.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------------- countdown ---------------- */
+  var party = new Date(2026, 9, 11);
+  var today = new Date(); today.setHours(0,0,0,0);
+  var d = Math.round((party - today) / 86400000);
+  var dn = document.getElementById('days'), dl = document.getElementById('daysLabel');
+  if (d > 1) { dn.textContent = d; dl.textContent = 'days to go. ' + (d <= 21 ? 'Call vendors this week.' : 'Good time to book.'); }
+  else if (d === 1) { dn.textContent = '1'; dl.textContent = 'day to go.'; }
+  else if (d === 0) { dn.textContent = '🎉'; dl.textContent = 'Party day.'; }
+  else { dn.textContent = '✓'; dl.textContent = 'The party has happened.'; }
+
+  /* ---------------- vendors ---------------- */
+  var V = {
+    hbh:{name:'HBH Party Rental', short:'HBH', town:'Windsor', mi:'~12 mi', phone:'(860) 869-7350', web:'https://hbhrentalllc.com', webLabel:'hbhrentalllc.com',
+      tags:['tent','seating','candy','inflate','heat'], fit:'good', fitLabel:'One-stop shop',
+      sum:'"Henry\'s Bounce House," owned by Marvin Henry since 2017. HBH is the only vendor that has all four items you asked about. Its tent comes with sidewalls and lights. Call or text to book. Reviews in search results show about 4.9★ from roughly 200 reviews.',
+      items:[['20×30 tent + sidewalls + lights (24 hr, set up)','$475'],['20×30 tent, no sidewalls','$425'],['Folding chair','$2'],['6-ft / 8-ft table','$12 / $15'],['Cotton candy machine (6 hr)','$70 + supplies'],['Bounce house / combo (6 hr)','$255–315'],['Portable heater','$85 each']],
+      watch:['Adults are not allowed on HBH inflatables (their contract).','Tables and chairs are dropped at your front door, not set up.','Ask how the tent is held down on a driveway.','Deposit is lost unless you cancel in writing 14+ days out. No refund for rain.'],
+      book:'Phone or text only'},
+    bremar:{name:'BreMar Rental', short:'BreMar', town:'Canton', mi:'~7 mi', phone:'(860) 693-1869', web:'https://www.bremarrental.com', webLabel:'bremarrental.com',
+      tags:['tent','seating','heat','extras'], fit:'top', fitLabel:'Best for tent',
+      sum:'The closest full-service shop with complete published prices. It lists Weatogue in its delivery area. Frame tents go on pavement, setup is included, and prices cover a 1–3 day rental. It does not rent cotton candy machines.',
+      items:[['20×40 high-peak frame tent','$645'],['20×30 high-peak frame tent','$495'],['White folding chair / padded','$2.00 / $3.75'],['60" round or 6/8-ft table','$11'],['Forced-air tent heater','$180'],['Bistro lights (20-ft strand)','$22–24'],['Sidewall (7×20)','~$40 est.'],['Giant Jenga / cornhole','$15 / $20'],['Popcorn cart','$80']],
+      watch:['Deposit is 30% and refundable up to 14 days out (Sep 27).','Chairs and tables arrive stacked. Setting them up costs extra.','Likely closed Sundays. Confirm Friday delivery and a pickup date, since Monday is Columbus Day.'],
+      book:'Phone. The website has a catalog and tent calculator.'},
+    bounceabout:{name:'Bounce About Inflatables', short:'Bounce About', town:'Canton', mi:'~6 mi', phone:'(860) 922-2858', web:'https://bounceaboutct.com', webLabel:'bounceaboutct.com',
+      tags:['inflate','candy','extras'], fit:'top', fitLabel:'Best nearby bouncer',
+      sum:'The closest inflatable company, and delivery to Simsbury is free. Every price, size and extra-hour rate is on the website. Weekend rentals run 5 hours. It carries $1M in insurance.',
+      items:[['Gladiator Joust (19×20)','$415'],['End Zone Challenge (football dive)','$275'],['50\' Zip It obstacle course','$650'],['Helix 2 dry slide','$650'],['Dunk tank (18+)','$325'],['Carnival games (axe throw, etc.)','$135 each'],['Cotton candy / popcorn / snow cone','$75 each'],['Generator','$100']],
+      watch:['Driveway setup is a "last resort" with advance notice. Use the front lawn if you can.','No attendant. An adult must supervise.','A certificate of insurance costs $100 on weekends.'],
+      good:'Cancel 7+ days out with no penalty. $100 deposit. For rain, you can decide up to the afternoon before.',
+      book:'Online availability check on each item page'},
+    ctinf:{name:'CT Inflatables & Event Rentals', short:'CT Inflatables', town:'Tolland', mi:'~35 mi', phone:'(860) 872-3662', web:'https://ctinflatables.com', webLabel:'ctinflatables.com',
+      tags:['inflate','candy','seating','extras'], fit:'top', fitLabel:'Best adult games',
+      sum:'The strongest lineup for adults: a mechanical bull, Wipe Out, human foosball, bungee run and a margarita machine. It is the only company whose FAQ clearly allows asphalt setups with sandbags. BBB A+, in business since 2003.',
+      items:[['Wipe Out spinning sweeper','from $600'],['Human Foosball (8 players)','from $545'],['Bungee Run / Joust Arena','from $375'],['Lumberjack Throw','from $325'],['Mechanical bull','from $1,200'],['Cotton candy machine','$85'],['Margarita machine','$150 + $18.50 mix'],['Giant Jenga / Connect 4 / cornhole','$85 / $65 / $75']],
+      watch:['It\'s about 35 miles away, so ask the delivery fee to Weatogue.','Ask how many hours the "from" prices cover.','Confirm the bull comes with an operator.'],
+      good:'Free reschedule for rain with 24 hours\' notice.',
+      book:'Online quote with a date check'},
+    partypatrol:{name:'Party Patrol Rentals', short:'Party Patrol', town:'Southampton, MA', mi:'~35 mi', phone:'(860) 265-4869', web:'https://www.partypatrolrentals.com', webLabel:'partypatrolrentals.com',
+      tags:['tent','seating','inflate'], fit:'good', fitLabel:'Fall deals',
+      sum:'It advertises heavily in Simsbury and names Weatogue in its delivery area. The rental is full day with next-day pickup. Fall sale prices apply now, and code CIDER takes up to 20% off through Nov 1. Also reachable at (860) 261-2208.',
+      items:[['Joust Arena (sale)','$395.99'],['Octagon Extreme / 40-ft obstacle','$395.99'],['Adrenaline Rush 2','$995.99'],['20×20 tent + 4 tables + 24 chairs','$429.99'],['20×30 tent + 6 tables + 36 chairs','$549.99'],['20×40 A-frame tent','$759–897']],
+      watch:['Tents can\'t be cancelled once confirmed.','Deposit is non-refundable, 20% or 25% depending on the page. Confirm which.','Pavement setup costs extra. It has no cotton candy machines.','Book-A-Bounce (860-251-9520) appears to carry the same inventory.'],
+      book:'Online booking by date'},
+    tuckers:{name:'Tucker\'s Party Rental', short:'Tucker\'s', town:'West Hartford', mi:'~13 mi', phone:'(860) 839-7825', web:'https://tuckerspartyrental.com', webLabel:'tuckerspartyrental.com',
+      tags:['tent','seating','candy','inflate','heat','extras'], fit:'good', fitLabel:'Book online',
+      sum:'A full catalog you can book online. It has all four items, though its bouncers are kid-level. Rentals are 24 hours. Reviews show about 4.7★ from 46 reviews.',
+      items:[['20×40 high-peak tent (installed)','from $800'],['20×30 high-peak tent','from $600'],['White folding chair','$2.69'],['60" round table','$15.99'],['Cotton candy machine','$89 (+ $18 supplies)'],['Tent heater / patio heater','$250 / $89'],['Bistro lights','$1.49 / ft'],['Kid bounce / combo slide','$149–299']],
+      watch:['On a driveway the tent needs 8 water barrels (extra fee), and you supply the hose.','Deposit is 50% and non-refundable. Cancelling inside 5 business days costs 100%.'],
+      book:'Online cart with a date calendar'},
+    ctparty:{name:'Connecticut Party Rentals', short:'CT Party Rentals', town:'Simsbury', mi:'~4 mi', phone:'860-658-1600', web:'https://ct-partyrentals.com', webLabel:'ct-partyrentals.com',
+      tags:['tent','seating','heat'], fit:'caution', fitLabel:'Quote only',
+      sum:'The closest tent company, at 1380 Hopmeadow St. It rents frame tents from 10×10 to 30×60, sidewalls, heat, lighting, dance floors, tables and chairs, and says it takes last-minute orders. It publishes no prices.',
+      items:[['Frame tents 10×10 to 30×60','quote'],['60"/72" rounds, 6/8-ft tables','quote'],['White folding or padded chairs','quote'],['Heat, lighting, sidewalls','quote']],
+      watch:['The website is dated. Call to confirm it\'s still operating.','Office hours are Mon–Fri. It doesn\'t rent cotton candy machines or inflatables.'],
+      book:'Phone or request form'},
+    expert:{name:'Expert Rental of Torrington', short:'Expert Rental', town:'Torrington', mi:'~22 mi', phone:'860-496-7368', web:'https://expertrentalct.com', webLabel:'expertrentalct.com',
+      tags:['tent','seating'], fit:'caution', fitLabel:'Ask about delivery',
+      sum:'Good published prices and installation included. Frame tents "stake on grass or weight on hard surfaces," so they work on a driveway. Prices are per event. Delivery to Weatogue isn\'t confirmed.',
+      items:[['20×40 frame tent (installed)','$795'],['20×30 frame tent','$550'],['20×40 DIY pickup tent','$375'],['Folding chair / white chair','$1.90 / $4.00'],['60" round or 6/8-ft table','$12']],
+      watch:['Confirm it delivers to Weatogue, and ask the fee.'],
+      book:'Phone'},
+    taylor:{name:'Taylor Rental Party Plus', short:'Taylor Rental', town:'Manchester', mi:'~22 mi', phone:'860-643-2496', web:'https://taylorrentalpartyplusct.com', webLabel:'taylorrentalpartyplusct.com',
+      tags:['tent','seating','candy','inflate','heat'], fit:'caution', fitLabel:'Priciest tents',
+      sum:'It has all four items and online ordering, but its tents cost the most here. Its cotton candy machine is the cheapest listed.',
+      items:[['20×30 / 20×40 frame tent','$830 / $1,105'],['White folding chair','$2.60'],['60" round table','$14.25'],['Cotton candy machine','$68.90'],['Sugar (60–70 servings) / 75 cones','$8.95 / $6.45'],['Bounce castle (kids)','$251.15']],
+      watch:['50% of a tent rental is non-refundable once booked.','The cotton candy machine can\'t run on an extension cord.'],
+      book:'Online shop'},
+    ctem:{name:'CT Event Masters', short:'CT Event Masters', town:'Torrington', mi:'~22 mi', phone:'(860) 618-9003', web:'https://cteventmasters.com', webLabel:'cteventmasters.com',
+      tags:['candy'], fit:'good', fitLabel:'Nicest cotton candy',
+      sum:'A nostalgia cotton candy cart that comes with cones and sugar, setup and a quick tutorial. It looks better than a tabletop machine.',
+      items:[['Cotton candy cart, supplies included','$120']],
+      watch:['Ask the delivery fee to Weatogue.'],
+      book:'Online'},
+    bouncezone:{name:'Bounce Zone', short:'Bounce Zone', town:'Bristol', mi:'~20 mi', phone:'(860) 469-2928', web:'https://bouncezonect.com', webLabel:'bouncezonect.com',
+      tags:['inflate','candy'], fit:'avoid', fitLabel:'Skip',
+      sum:'It has fun games, like a Floor is Lava wrecking ball ($425) and inflatable axe throwing ($200), but its policies don\'t work for this party.',
+      items:[['Floor is LAVA wrecking ball','$425'],['Axe throwing inflatable','$200'],['Cotton candy machine','$80']],
+      watch:['Grass only. It won\'t set up on any hard surface.','In October it may reschedule if that week\'s temperatures are below 75°F.','No refunds, only store credit.'],
+      book:'Online'}
+  };
+  var ORDER = ['bremar','bounceabout','ctinf','hbh','partypatrol','tuckers','ctparty','expert','ctem','taylor','bouncezone'];
+  var FILTERS = [['all','All'],['tent','Tents'],['seating','Chairs & tables'],['inflate','Bounce / inflatables'],['candy','Cotton candy'],['heat','Heaters'],['extras','Extras']];
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function phoneHTML(p){
+    var digits = p.replace(/[^0-9]/g,'');
+    return '<span class="phone"><a href="tel:+1'+digits+'">'+esc(p)+'</a><button type="button" class="copy" data-copy="'+esc(p)+'" aria-label="Copy '+esc(p)+'">Copy</button></span>';
+  }
+
+  var fwrap = document.getElementById('filters'), grid = document.getElementById('vgrid');
+  var active = 'all';
+  function renderFilters(){
+    fwrap.innerHTML = FILTERS.map(function(f){ return '<button type="button" class="chip" data-f="'+f[0]+'" aria-pressed="'+(f[0]===active)+'">'+f[1]+'</button>'; }).join('');
+  }
+  function renderVendors(){
+    grid.innerHTML = ORDER.filter(function(k){ return active==='all' || V[k].tags.indexOf(active) > -1; }).map(function(k){
+      var v = V[k];
+      return '<article class="vcard" id="v-'+k+'">'+
+        '<header><div class="vtop"><h3>'+esc(v.name)+'</h3><span class="fit '+v.fit+'">'+esc(v.fitLabel)+'</span></div>'+
+        '<span class="vmeta">'+esc(v.town)+' · '+esc(v.mi)+'</span></header>'+
+        '<p class="vsum">'+esc(v.sum)+'</p>'+
+        '<ul class="items">'+v.items.map(function(i){ return '<li><span>'+esc(i[0])+'</span><span>'+esc(i[1])+'</span></li>'; }).join('')+'</ul>'+
+        (v.good ? '<div class="watch" style="background:var(--good-bg)"><b style="color:var(--good-ink)">Good terms</b>'+esc(v.good)+'</div>' : '')+
+        (v.watch && v.watch.length ? '<div class="watch"><b>Watch out</b>'+v.watch.map(function(w){ return '<span>• '+esc(w)+'</span>'; }).join('')+'</div>' : '')+
+        '<div class="vfoot">'+phoneHTML(v.phone)+'<span><a href="'+v.web+'" target="_blank" rel="noopener">'+esc(v.webLabel)+' ↗</a></span>'+
+        '<span class="fine" style="flex-basis:100%">Booking: '+esc(v.book)+'</span></div>'+
+      '</article>';
+    }).join('');
+  }
+  fwrap.addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if(!b) return;
+    active = b.dataset.f; renderFilters(); renderVendors();
+  });
+  renderFilters(); renderVendors();
+
+  /* ---------------- planner ---------------- */
+  var CATS = [
+    {key:'tent', label:'Tent', hint:'a 20×40 seats all 50', opts:[
+      {id:'none', t:'No tent', p:0},
+      {id:'bremar40', t:'20×40 high-peak frame tent', v:'bremar', p:645, note:'Seats ~47 at rounds. Works on pavement.', flag:['good','best fit']},
+      {id:'bremar30', t:'20×30 high-peak frame tent', v:'bremar', p:495, note:'Tight for 50 seated. Fine if people mingle.'},
+      {id:'hbh30', t:'20×30 tent with sidewalls + lights', v:'hbh', p:475, note:'Lights and walls included. Ask about the driveway install.'},
+      {id:'expert40', t:'20×40 frame tent', v:'expert', p:795, note:'Weights on hard surfaces. Confirm delivery.'},
+      {id:'tuckers40', t:'20×40 high-peak tent', v:'tuckers', p:800, note:'Driveway install adds a water-barrel fee.', flag:['warn','+ fee']},
+      {id:'pp30', t:'20×30 tent + 6 tables + 36 chairs package', v:'partypatrol', p:549.99, note:'You\'d still need 14 more chairs. Can\'t cancel.'},
+      {id:'ctparty', t:'Frame tent, local Simsbury shop', v:'ctparty', p:0, quote:true, note:'Closest company. Call for price.', flag:['warn','quote']}
+    ]},
+    {key:'seat', label:'Chairs & tables', hint:'7 rounds × 8 = 56 seats', qty:true, opts:[
+      {id:'none', t:'None / already have them', c:0, tb:0},
+      {id:'bremar', t:'White folding chairs + 60" rounds', v:'bremar', c:2, tb:11, note:'$2 per chair, $11 per table'},
+      {id:'bremarpad', t:'White padded chairs + 60" rounds', v:'bremar', c:3.75, tb:11, note:'$3.75 per chair, $11 per table. More comfortable.'},
+      {id:'hbh', t:'Folding chairs + 8-ft banquet tables', v:'hbh', c:2, tb:15, note:'$2 per chair, $15 per table. No rounds.'},
+      {id:'expert', t:'Folding chairs + 60" rounds', v:'expert', c:1.9, tb:12, note:'$1.90 per chair, $12 per table'},
+      {id:'tuckers', t:'White folding chairs + 60" rounds', v:'tuckers', c:2.69, tb:15.99, note:'$2.69 per chair, $15.99 per table'}
+    ]},
+    {key:'bounce', label:'Bounce house / inflatable', hint:'adult-rated first', opts:[
+      {id:'none', t:'No inflatable', p:0},
+      {id:'ba_joust', t:'Gladiator Joust', v:'bounceabout', p:415, note:'Head-to-head fun for adults. 5 hrs, free delivery.', flag:['good','adults ok']},
+      {id:'ba_combo', t:'Gladiator Joust + End Zone Challenge', v:'bounceabout', p:690, note:'Two stations keep the line moving.'},
+      {id:'ba_zip', t:'50-ft Zip It obstacle course', v:'bounceabout', p:650, note:'Race each other. Needs a 50×10 ft space.'},
+      {id:'cti_wipe', t:'Wipe Out spinning sweeper', v:'ctinf', p:600, note:'The best pick for adults. Needs 42×17 ft. OK on asphalt.', flag:['good','adults ok']},
+      {id:'cti_foos', t:'Human Foosball', v:'ctinf', p:545, note:'8 players at a time. Needs 45×20 ft.'},
+      {id:'cti_bull', t:'Mechanical bull', v:'ctinf', p:1200, note:'The showstopper. Confirm an operator is included.'},
+      {id:'pp_joust', t:'Joust Arena (fall sale)', v:'partypatrol', p:395.99, note:'Full day. Pavement setup costs extra.'},
+      {id:'hbh_castle', t:'Castle bounce house', v:'hbh', p:255, note:'Kids only. Adults are banned by contract.', flag:['bad','kids only']}
+    ]},
+    {key:'candy', label:'Cotton candy machine', opts:[
+      {id:'none', t:'No cotton candy', p:0},
+      {id:'ba', t:'Cotton candy machine', v:'bounceabout', p:75, note:'Delivered free with the inflatable.'},
+      {id:'hbh', t:'Cotton candy machine (6 hr)', v:'hbh', p:70, note:'Add the 30-serving supply kit.'},
+      {id:'cti', t:'Cotton candy machine', v:'ctinf', p:85, note:'Comes on the same truck as the games.'},
+      {id:'ctem', t:'Nostalgia cotton candy cart', v:'ctem', p:120, note:'Supplies included. Looks the best.'},
+      {id:'tuckers', t:'Cotton candy machine + sugar + cones', v:'tuckers', p:106.98, note:'$89 + $12.99 + $4.99'}
+    ]},
+    {key:'heat', label:'Heat', hint:'evenings drop to the 40s', opts:[
+      {id:'none', t:'No heat', p:0},
+      {id:'bremar', t:'Forced-air tent heater', v:'bremar', p:180, note:'Ducted in. Safest under a tent. Propane extra (est. $40–80).', flag:['good','recommended']},
+      {id:'hbh', t:'Two portable heaters', v:'hbh', p:170, note:'$85 each. Ask what type they are.'},
+      {id:'tuckers', t:'Tent heater', v:'tuckers', p:250, note:'Propane tank not included.'}
+    ]},
+    {key:'light', label:'Lighting', hint:'sunset is about 6:15', opts:[
+      {id:'none', t:'No lights / included with tent', p:0},
+      {id:'bremar', t:'6 strands of warm bistro lights', v:'bremar', p:138, note:'About 120 ft at ~$23 per strand'},
+      {id:'tuckers', t:'100 ft of bistro lights', v:'tuckers', p:149, note:'$1.49 per foot'}
+    ]}
+  ];
+  var EXTRAS = [
+    {id:'walls', t:'Tent sidewalls (5–6 walls)', v:'bremar', p:220, est:true, note:'Blocks wind on a chilly night'},
+    {id:'games', t:'Giant Jenga + cornhole', v:'bremar', p:35},
+    {id:'axe', t:'Carnival axe-throw game', v:'bounceabout', p:135},
+    {id:'lumber', t:'Lumberjack Throw inflatable', v:'ctinf', p:325},
+    {id:'marg', t:'Margarita machine + 2 mixes', v:'ctinf', p:187},
+    {id:'popcorn', t:'Popcorn cart + supplies', v:'bremar', p:110, est:true},
+    {id:'dance', t:'15×15 dance floor', v:'bremar', p:425},
+    {id:'booth', t:'Roaming photo booth', vn:'Photo Booth Picture Co.', vp:'203-208-9854', p:600},
+    {id:'dj', t:'DJ, about 4 hours', vn:'Full Blast Entertainment', vp:'860-400-2320', p:1000, est:true},
+    {id:'bar', t:'Bartender, 3 hours', vn:'Whimsically Tipsy', vp:'see whimsicallytipsy.com', p:600},
+    {id:'movie', t:'Backyard movie package', vn:'Premiere Outdoor Movies', vp:'(877) 767-4338', p:449},
+    {id:'gen', t:'Generator', v:'bounceabout', p:100}
+  ];
+  var PRESETS = [
+    {id:'A', name:'Plan A · Two nearby calls', sub:'BreMar tent + Bounce About joust', sel:{tent:'bremar40', seat:'bremar', bounce:'ba_joust', candy:'ba', heat:'bremar', light:'bremar'}, x:['games'], chairs:50, tables:7},
+    {id:'B', name:'Plan B · Adult game night', sub:'BreMar tent + CT Inflatables Wipe Out & margaritas', sel:{tent:'bremar40', seat:'bremar', bounce:'cti_wipe', candy:'cti', heat:'bremar', light:'bremar'}, x:['marg','walls'], chairs:50, tables:7},
+    {id:'C', name:'Plan C · One call', sub:'Everything from HBH, but the bouncer is kids only', sel:{tent:'hbh30', seat:'hbh', bounce:'hbh_castle', candy:'hbh', heat:'hbh', light:'none'}, x:[], chairs:50, tables:7}
+  ];
+
+  var state = {sel:{}, x:[], chairs:50, tables:7, preset:'A'};
+  try { var saved = JSON.parse(localStorage.getItem('forty-plan')); if (saved && saved.sel) state = saved; } catch(e){}
+  if (!state.sel.tent) applyPreset('A', true);
+
+  function money(n){ return '$' + n.toLocaleString('en-US', {minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits:2}); }
+  function money0(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  function renderPresets(){
+    document.getElementById('presets').innerHTML = PRESETS.map(function(p){
+      return '<button type="button" class="preset" data-p="'+p.id+'" aria-pressed="'+(state.preset===p.id)+'"><b>'+esc(p.name)+'</b><span>'+esc(p.sub)+'</span></button>';
+    }).join('');
+  }
+  function renderCats(){
+    var html = CATS.map(function(c){
+      var h = '<div class="cat"><div class="cat-head"><span class="eyebrow">'+c.label+'</span>'+(c.hint?'<span class="hint">'+c.hint+'</span>':'')+'</div>';
+      if (c.qty) h += '<div class="qty"><label for="q-chairs">Chairs <input id="q-chairs" type="number" min="0" max="200" value="'+state.chairs+'"></label><label for="q-tables">Tables <input id="q-tables" type="number" min="0" max="40" value="'+state.tables+'"></label></div>';
+      h += '<div class="opts">' + c.opts.map(function(o){
+        var id = 'o-'+c.key+'-'+o.id;
+        var price = c.qty ? (o.id==='none' ? '$0' : money(o.c*state.chairs + o.tb*state.tables)) : (o.quote ? 'quote' : money(o.p));
+        var vendor = o.v ? V[o.v].short + ' · ' : '';
+        var flag = o.flag ? '<span class="flag '+o.flag[0]+'">'+o.flag[1]+'</span>' : '';
+        return '<label class="opt" for="'+id+'"><input type="radio" name="c-'+c.key+'" id="'+id+'" value="'+o.id+'"'+(state.sel[c.key]===o.id?' checked':'')+'>'+
+          '<span><span class="t">'+esc(o.t)+flag+'</span><span class="v">'+esc(vendor + (o.note||''))+'</span></span><span class="p">'+price+'</span></label>';
+      }).join('') + '</div></div>';
+      return h;
+    }).join('');
+    html += '<div class="cat"><div class="cat-head"><span class="eyebrow">Extras</span><span class="hint">pick any</span></div><div class="opts">' + EXTRAS.map(function(o){
+      var id = 'x-'+o.id;
+      var vendor = o.v ? V[o.v].short : o.vn;
+      return '<label class="opt" for="'+id+'"><input type="checkbox" id="'+id+'" value="'+o.id+'"'+(state.x.indexOf(o.id)>-1?' checked':'')+'>'+
+        '<span><span class="t">'+esc(o.t)+(o.est?'<span class="flag warn">est.</span>':'')+'</span><span class="v">'+esc(vendor + (o.note?' · '+o.note:''))+'</span></span><span class="p">'+money(o.p)+'</span></label>';
+    }).join('') + '</div></div>';
+    document.getElementById('cats').innerHTML = html;
+  }
+  function findOpt(key, id){ var c = CATS.filter(function(c){return c.key===key;})[0]; return c.opts.filter(function(o){return o.id===id;})[0]; }
+
+  function renderReceipt(){
+    var lines = [], sub = 0, quotes = 0, vendors = {}, hasEst = false;
+    CATS.forEach(function(c){
+      var o = findOpt(c.key, state.sel[c.key]); if (!o || o.id==='none') return;
+      var p = c.qty ? (o.c*state.chairs + o.tb*state.tables) : o.p;
+      var label = c.qty ? state.chairs+' chairs + '+state.tables+' tables' : o.t;
+      if (o.quote) quotes++;
+      sub += p;
+      lines.push([label + ' (' + V[o.v].short + ')', o.quote ? 'quote' : money(p)]);
+      (vendors[o.v] = vendors[o.v] || []).push(c.qty ? 'chairs & tables' : c.label.toLowerCase());
+    });
+    EXTRAS.forEach(function(o){
+      if (state.x.indexOf(o.id) < 0) return;
+      sub += o.p; if (o.est) hasEst = true;
+      lines.push([o.t + ' (' + (o.v ? V[o.v].short : o.vn) + ')' + (o.est?' est.':''), money(o.p)]);
+      var k = o.v || ('ext:'+o.id);
+      (vendors[k] = vendors[k] || []).push(o.t.toLowerCase());
+    });
+    var tax = sub * 0.0635;
+    var p = PRESETS.filter(function(x){return x.id===state.preset;})[0];
+    document.getElementById('planName').textContent = p ? p.name : 'Your custom plan';
+    document.getElementById('lines').innerHTML = lines.map(function(l){ return '<div class="line"><span>'+esc(l[0])+'</span><span class="num">'+l[1]+'</span></div>'; }).join('') +
+      '<div class="line" style="border-top:1px solid var(--line);padding-top:6px"><span>Subtotal</span><span class="num">'+money0(sub)+'</span></div>'+
+      '<div class="line"><span>CT sales tax 6.35%</span><span class="num">'+money0(tax)+'</span></div>';
+    document.getElementById('total').textContent = money0(sub + tax) + (quotes ? '+' : '');
+    var keys = Object.keys(vendors);
+    var paidDelivery = keys.filter(function(k){ return k !== 'bounceabout' && k.indexOf('ext:')!==0; }).length;
+    document.getElementById('fineprint').textContent =
+      'Not included: delivery from ' + paidDelivery + ' vendor' + (paidDelivery===1?'':'s') + ' (quoted by town; Bounce About is free), propane, and any Simsbury tent permit fee.' +
+      (quotes ? ' One item is quote-only, so its price isn\'t counted.' : '') + (hasEst ? ' Items marked est. are estimates.' : '');
+    document.getElementById('calls').innerHTML = keys.length ? keys.map(function(k){
+      var name, phone;
+      if (k.indexOf('ext:')===0){ var e = EXTRAS.filter(function(x){return 'ext:'+x.id===k;})[0]; name = e.vn; phone = e.vp; }
+      else { name = V[k].name; phone = V[k].phone; }
+      var ph = /\d{3}.*\d{4}/.test(phone) ? phoneHTML(phone) : '<span class="fine">'+esc(phone)+'</span>';
+      return '<div class="call"><b>'+esc(name)+'</b>'+ph+'<span class="what">Book: '+esc(vendors[k].join(', '))+'</span></div>';
+    }).join('') : '<p class="fine">Pick some items to see who to call.</p>';
+  }
+  function save(){ try { localStorage.setItem('forty-plan', JSON.stringify(state)); } catch(e){} }
+  function applyPreset(id, silent){
+    var p = PRESETS.filter(function(x){return x.id===id;})[0];
+    state = {sel: Object.assign({}, p.sel), x: p.x.slice(), chairs:p.chairs, tables:p.tables, preset:id};
+    if (!silent){ save(); renderAll(); }
+  }
+  function renderAll(){ renderPresets(); renderCats(); renderReceipt(); }
+
+  document.getElementById('presets').addEventListener('click', function(e){
+    var b = e.target.closest('.preset'); if (b) applyPreset(b.dataset.p);
+  });
+  document.getElementById('cats').addEventListener('change', function(e){
+    var t = e.target;
+    if (t.type === 'radio'){ state.sel[t.name.slice(2)] = t.value; state.preset = null; }
+    else if (t.type === 'checkbox'){
+      var i = state.x.indexOf(t.value);
+      if (t.checked && i < 0) state.x.push(t.value); else if (!t.checked && i > -1) state.x.splice(i,1);
+      state.preset = null;
+    } else if (t.id === 'q-chairs' || t.id === 'q-tables'){
+      var n = Math.max(0, Math.min(200, parseInt(t.value,10) || 0));
+      if (t.id === 'q-chairs') state.chairs = n; else state.tables = n;
+      state.preset = null; save(); renderPresets(); renderCats(); renderReceipt();
+      var el = document.getElementById(t.id); if (el){ el.focus(); }
+      return;
+    }
+    save(); renderPresets(); renderReceipt();
+  });
+  renderAll();
+
+  /* ---------------- checklist ---------------- */
+  var CHECK = [
+    ['Are you available Sunday, Oct 11?', 'When do you deliver and pick up? Monday is Columbus Day.'],
+    ['What is the delivery fee to Weatogue (06089)?', 'Only Bounce About publishes free delivery to Simsbury.'],
+    ['Can the tent go on my driveway?', 'Are weights or water barrels included, or extra? Describe the slope.'],
+    ['Will you pull the Simsbury tent permit?', 'Tents over 400 sq ft need a building permit and Fire Marshal approval.'],
+    ['If you stake in the yard, will you call 811?', 'The call has to be made by Wed Oct 7 for Friday setup.'],
+    ['What heater do you recommend under the tent?', 'Forced-air, ducted in. Is propane included?'],
+    ['Inflatables: can adults use it? What\'s the weight limit?', 'Can it go on pavement with sandbags? Is there an attendant?'],
+    ['What are the deposit, the cancellation terms and the rain policy?', 'Get the refund date in writing.'],
+    ['How many electrical circuits does each item need?', 'Cotton candy machines and blowers usually need their own outlet. Do I need a generator?'],
+    ['Do you set up the tables and chairs, or drop them off?', 'BreMar and HBH drop them stacked unless you pay for setup.'],
+    ['Can you send a certificate of insurance, and is there a fee?', 'Bounce About charges $100 on weekends.']
+  ];
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem('forty-check')) || {}; } catch(e){}
+  document.getElementById('checklist').innerHTML = CHECK.map(function(c, i){
+    return '<label for="ck'+i+'"><input type="checkbox" id="ck'+i+'" data-i="'+i+'"'+(done[i]?' checked':'')+'><span><b>'+esc(c[0])+'</b><small>'+esc(c[1])+'</small></span></label>';
+  }).join('');
+  document.getElementById('checklist').addEventListener('change', function(e){
+    done[e.target.dataset.i] = e.target.checked;
+    try { localStorage.setItem('forty-check', JSON.stringify(done)); } catch(err){}
+  });
+
+  /* ---------------- copy buttons ---------------- */
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.copy'); if (!b) return;
+    var txt = b.dataset.copy;
+    function ok(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy'; }, 1400); }
+    function fallback(){
+      var a = b.previousElementSibling; var r = document.createRange(); r.selectNodeContents(a);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected';
+      setTimeout(function(){ b.textContent = 'Copy'; }, 1400);
+    }
+    try { navigator.clipboard.writeText(txt).then(ok, fallback); } catch(err){ fallback(); }
+  });
+})();
+</script>
+
+</body></html>
